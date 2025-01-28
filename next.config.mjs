@@ -3,7 +3,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'www.matichon.co.th',
+        hostname: "m.media-amazon.com",
+      },
+      {
+        hostname: "www.matichon.co.th",
       },
     ],
   },

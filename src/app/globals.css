@@ -6,6 +6,9 @@
 }
 
 body {
-  background-color: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gradient-to-br from-[#0F0F0F] to-[#1a0c0c] text-white;
+}
+
+.poster-shadow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
