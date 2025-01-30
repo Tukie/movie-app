@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import FilterType from "./FilterType";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
@@ -19,13 +19,19 @@ export default function SearchClientWrapper() {
   return (
     <>
       <div className="flex flex-col sm:flex-row items-center gap-5 justify-between mb-10">
-        <SearchBar />
-        <FilterType />
+        <Suspense>
+          <SearchBar />
+        </Suspense>
+        <Suspense>
+          <FilterType />
+        </Suspense>
         <SearchButton onClick={handleClockOnSearch} />
       </div>
 
       <div className="">
+      <Suspense>
         <SearchResults isSearch={isSearch} />
+        </Suspense>
       </div>
     </>
   );
