@@ -19,7 +19,7 @@ export default function WaitList() {
     setTimeout(() => {
       setWaitLists(getAllWaitList);
       setLoading(false);
-    }, 1500);
+    }, 200);
   };
 
   useEffect(() => {

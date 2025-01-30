@@ -19,7 +19,7 @@ export default function FavoritesList() {
     setTimeout(() => {
       setFavorite(getAllFavorite);
       setLoading(false);
-    }, 1500);
+    }, 200);
   };
 
   useEffect(() => {
