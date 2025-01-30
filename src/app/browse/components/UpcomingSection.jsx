@@ -12,6 +12,7 @@ import {
 } from "@/app/utils/useWaitList";
 import { toast } from "react-toastify";
 import UpcomingLoader from "./loader/UpcomingLoader";
+import NotFound from "@/app/components/NotFound";
 
 export default function UpcomingSection() {
   const [upcoming, setUpcoming] = useState([]);
@@ -75,6 +76,13 @@ export default function UpcomingSection() {
               ))}
             </div>
           </Marquee>
+        </div>
+      )}
+
+      {/* Empty */}
+      {!loading && !upcoming.length && (
+        <div className="w-full mx-auto">
+          <NotFound />
         </div>
       )}
     </section>
