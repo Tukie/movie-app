@@ -5,13 +5,14 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import { IconSearch } from "@tabler/icons-react";
 import { FormControl } from "@mui/material";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function SearchBar() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [displaySearchValue, setDisplaySearchValue] = useState("");
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -22,6 +23,11 @@ export default function SearchBar() {
     },
     [searchParams]
   );
+
+  // When the page is loaded
+  useEffect(() => {
+    setDisplaySearchValue(searchParams.get("keyword") || "");
+  }, []);
 
   return (
     <div className="w-full">
@@ -36,9 +42,12 @@ export default function SearchBar() {
             padding: "25px 10px",
           }}
           type={"text"}
-          value={searchParams.get("keyword") || ""}
+          value={displaySearchValue}
           onChange={(e) => {
-            router.push(pathname + "?" + createQueryString("keyword", e.target.value));
+            setDisplaySearchValue(e.target.value);
+            router.push(
+              pathname + "?" + createQueryString("keyword", e.target.value)
+            );
           }}
           startAdornment={
             <InputAdornment position="end">
