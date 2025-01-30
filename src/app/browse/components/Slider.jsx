@@ -1,7 +1,7 @@
 "use client";
 
 import IconButton from "@mui/material/IconButton";
-import { IconLanguage, IconEye, IconHeart } from "@tabler/icons-react";
+import { IconLanguage, IconEye } from "@tabler/icons-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
@@ -193,9 +193,6 @@ function Slider() {
               <IconEye size={20} />
               Watch
             </Button>
-            <IconButton color="primary">
-              <IconHeart size={20} className="text-white" />
-            </IconButton>
           </div>
         </div>
       )}
