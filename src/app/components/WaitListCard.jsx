@@ -36,7 +36,7 @@ export default function WaitListCard({
         />
       </div>
       <div className="flex justify-between">
-        <p className=" font-semibold text-white mb-2">{title}</p>
+        <p className=" font-semibold text-white mb-2 mt-1.5">{title}</p>
         <div className="">
           <IconButton
             className="shrink-0"
