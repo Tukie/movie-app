@@ -3,6 +3,7 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import api from "@/app/utils/api";
 import { Alert, AlertTitle } from "@mui/material";
+import WaitListButton from "./WaitListButton";
 
 export default async function UpcomingSection() {
   const { results } = await api.get("/titles/x/upcoming");
@@ -41,10 +42,11 @@ export default async function UpcomingSection() {
                     alt=""
                   />
                 </div>
-                <div>
-                  <p className=" font-semibold text-white mb-2">
+                <div className="flex gap-10 justify-between">
+                  <p className=" font-semibold text-white mb-2 w-full">
                     {item?.titleText?.text}
                   </p>
+                  <WaitListButton mediaDetails={item} />
                 </div>
               </div>
             ))}
